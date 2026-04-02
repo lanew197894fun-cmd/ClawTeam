@@ -1,3 +1,3 @@
-"""ClawTeam - Open-source harness framework for multi-agent orchestration."""
+"""ClawTeam - Framework-agnostic multi-agent coordination CLI."""
 
-__version__ = "0.3.0"
+__version__ = "0.2.0"

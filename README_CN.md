@@ -1,8 +1,8 @@
-<h1 align="center"><img src="assets/icon.png" alt="" width="64" style="vertical-align: middle;">&nbsp; OpenHarness：Agent 群体智能</h1>
+<h1 align="center"><img src="assets/icon.png" alt="" width="64" style="vertical-align: middle;">&nbsp; ClawTeam：Agent 群体智能</h1>
 
 <p align="center">
   <strong>今天的 Agent 各自为战 🤖，明天的 Agent 将协同作战 🦞🤖🤖🤖<br>
-  OpenHarness：让 AI Agent 自主组建团队、分配任务、协同工作的 CLI 工具</strong>
+  ClawTeam：让 AI Agent 自主组建团队、分配任务、协同工作的 CLI 工具</strong>
 </p>
 
 <p align="center">
@@ -27,9 +27,9 @@
 
 ## 📰 News
 
-**2026-03-18** OpenHarness 项目正式公开发布。
+**2026-03-18** ClawTeam 项目正式公开发布。
 
-**2026-03-23** OpenHarness `v0.2.0` 今日发布。
+**2026-03-23** ClawTeam `v0.2.0` 今日发布。
 
 **2026-03** 当前能力基线已包含配置管理、多用户协作、Web UI、P2P 传输与团队模板。
 
@@ -59,7 +59,7 @@ https://github.com/user-attachments/assets/fd23be91-5cf4-457c-a77e-bac24b76e58f
 🧠 系统会在团队之间汇总突破、持续调整策略，实现无需人工介入的研究自动化。
 
 <p align="center">
-  <img src="assets/teaser.png" alt="OpenHarness - Agent 群体智能" width="800">
+  <img src="assets/teaser.png" alt="ClawTeam - Agent 群体智能" width="800">
 </p>
 
 ---
@@ -125,7 +125,7 @@ https://github.com/user-attachments/assets/fd23be91-5cf4-457c-a77e-bac24b76e58f
 
 <p align="center"><strong>一键启动团队</strong></p>
 
-<p align="center">用 TOML 模板定义任意团队原型 —— 角色、任务、提示词 —— 一条命令 <code>oh launch</code> 启动</p>
+<p align="center">用 TOML 模板定义任意团队原型 —— 角色、任务、提示词 —— 一条命令 <code>clawteam launch</code> 启动</p>
 
 </td>
 </tr>
@@ -133,13 +133,13 @@ https://github.com/user-attachments/assets/fd23be91-5cf4-457c-a77e-bac24b76e58f
 
 ---
 
-## 🤔 为什么需要 OpenHarness？
+## 🤔 为什么需要 ClawTeam？
 
 AI 编程 Agent 很强大 —— 但它们**各自为战**。当任务太大时，你只能手动拆分工作、复制粘贴上下文、合并结果。
 
 **如果 Agent 能自己组队呢？**
 
-OpenHarness 实现了 **Agent 群体智能（Swarm Intelligence）**—— Agent 自主组建团队、分工协作、共享发现、收敛到最优方案。一个 Leader Agent 可以：
+ClawTeam 实现了 **Agent 群体智能（Swarm Intelligence）**—— Agent 自主组建团队、分工协作、共享发现、收敛到最优方案。一个 Leader Agent 可以：
 
 - 🚀 **创建子 Agent** —— 每个子 Agent 拥有独立的 Git Worktree 和 tmux 会话
 - 📋 **分配任务** —— 支持依赖链，完成时自动解除下游阻塞
@@ -150,7 +150,7 @@ OpenHarness 实现了 **Agent 群体智能（Swarm Intelligence）**—— Agent
 人类只需提供初始目标，**群体智能完成剩下的一切。**
 
 <p align="center">
-  <img src="assets/comic-how-it-works.png" alt="OpenHarness 工作流程" width="700">
+  <img src="assets/comic-how-it-works.png" alt="ClawTeam 工作流程" width="700">
 </p>
 
 ---
@@ -162,11 +162,11 @@ OpenHarness 实现了 **Agent 群体智能（Swarm Intelligence）**—— Agent
 <td width="33%" valign="top">
 
 ### 🦞 Agent 创建 Agent
-Leader Agent 调用 `oh spawn` 创建 Worker。每个 Worker 自动获得独立的 **Git Worktree**、**tmux 窗口**和**身份标识**。
+Leader Agent 调用 `clawteam spawn` 创建 Worker。每个 Worker 自动获得独立的 **Git Worktree**、**tmux 窗口**和**身份标识**。
 
 ```bash
 # Leader Agent 执行：
-oh spawn --team my-team \
+clawteam spawn --team my-team \
   --agent-name worker1 \
   --task "实现认证模块"
 ```
@@ -179,9 +179,9 @@ Worker 检查收件箱、更新任务状态、汇报结果 —— 全部通过 C
 
 ```bash
 # Worker Agent 检查任务：
-oh task list my-team --owner me
+clawteam task list my-team --owner me
 # 汇报结果：
-oh inbox send my-team leader \
+clawteam inbox send my-team leader \
   "认证模块完成，全部测试通过。"
 ```
 
@@ -193,16 +193,16 @@ oh inbox send my-team leader \
 
 ```bash
 # 同时观看所有 Agent
-oh board attach my-team
+clawteam board attach my-team
 # 或打开 Web 仪表板
-oh board serve --port 8080
+clawteam board serve --port 8080
 ```
 
 </td>
 </tr>
 </table>
 
-| | OpenHarness | 其他多 Agent 框架 |
+| | ClawTeam | 其他多 Agent 框架 |
 |---|---------|-----------------|
 | 🎯 **使用者** | **AI Agent 自身** | 人类编写编排代码 |
 | ⚡ **搭建** | `pip install` + 一句提示词 | Docker、云 API、YAML 配置 |
@@ -232,16 +232,16 @@ oh board serve --port 8080
 
 🦞 Leader Agent 的行动：
 ├── 📖 阅读 program.md，理解实验协议
-├── 🏗️ oh team spawn-team autoresearch
+├── 🏗️ clawteam team spawn-team autoresearch
 ├── 🚀 为每块 GPU 分配研究方向：
-│   ├── GPU 0: oh spawn --task "探索模型深度（DEPTH 10-16）"
-│   ├── GPU 1: oh spawn --task "探索模型宽度（ASPECT_RATIO 80-128）"
-│   ├── GPU 2: oh spawn --task "调优学习率和优化器"
-│   ├── GPU 3: oh spawn --task "探索批量大小"
-│   ├── GPU 4-7: oh spawn tmux codex --task "..."（Codex Agent）
+│   ├── GPU 0: clawteam spawn --task "探索模型深度（DEPTH 10-16）"
+│   ├── GPU 1: clawteam spawn --task "探索模型宽度（ASPECT_RATIO 80-128）"
+│   ├── GPU 2: clawteam spawn --task "调优学习率和优化器"
+│   ├── GPU 3: clawteam spawn --task "探索批量大小"
+│   ├── GPU 4-7: clawteam spawn tmux codex --task "..."（Codex Agent）
 │   └── 🌳 每个 Agent 独立的 Git Worktree 和分支
 ├── 🔄 每 30 分钟检查进展：
-│   ├── oh board show autoresearch
+│   ├── clawteam board show autoresearch
 │   ├── 读取每个 Agent 的 results.tsv
 │   ├── 🏆 识别最佳发现（depth=12、batch=2^17、norm-before-RoPE）
 │   └── 📡 交叉融合：让新 Agent 从最佳配置开始
@@ -264,7 +264,7 @@ oh board serve --port 8080
 人类提示词："做一个全栈 Todo 应用，包含认证、数据库和 React 前端。"
 
 🦞 Leader Agent 的行动：
-├── 🏗️ oh team spawn-team webapp -d "全栈 Todo 应用"
+├── 🏗️ clawteam team spawn-team webapp -d "全栈 Todo 应用"
 ├── 📋 创建带依赖链的任务：
 │   ├── T1: "设计 REST API 接口"          → architect
 │   ├── T2: "实现 JWT 认证" --blocked-by T1  → backend1
@@ -290,7 +290,7 @@ oh board serve --port 8080
 
 ```bash
 # 一条命令启动完整团队：
-oh launch hedge-fund --team fund1 --goal "分析 AAPL、MSFT、NVDA 的 Q2 2026 投资价值"
+clawteam launch hedge-fund --team fund1 --goal "分析 AAPL、MSFT、NVDA 的 Q2 2026 投资价值"
 ```
 
 ```
@@ -311,11 +311,11 @@ oh launch hedge-fund --team fund1 --goal "分析 AAPL、MSFT、NVDA 的 Q2 2026 
 ## 📦 安装
 
 ```bash
-pip install openharness
+pip install clawteam
 
 # 或从源码安装
-git clone https://github.com/HKUDS/OpenHarness.git
-cd OpenHarness
+git clone https://github.com/HKUDS/ClawTeam.git
+cd ClawTeam
 pip install -e .
 
 # 可选：P2P 传输（ZeroMQ）
@@ -330,7 +330,7 @@ pip install -e ".[p2p]"
 
 ## 🚀 快速开始
 
-如果你是第一次用 OpenHarness，建议按这个顺序：
+如果你是第一次用 ClawTeam，建议按这个顺序：
 
 1. 先确认 `tmux` 和你的 agent CLI 本机能单独跑起来。
 2. 选一条路径：让 agent 驱动，或者你自己手动驱动。
@@ -343,7 +343,7 @@ pip install -e ".[p2p]"
 
 ```bash
 tmux -V
-oh --help
+clawteam --help
 
 # 把 claude 换成你实际要用的 agent：
 claude --version
@@ -351,47 +351,47 @@ codex --version
 nanobot --help
 ```
 
-如果 agent CLI 自己都跑不起来，`oh spawn` 也不会帮你修好它。
+如果 agent CLI 自己都跑不起来，`clawteam spawn` 也不会帮你修好它。
 
 ### ⚡ 方式一：让 Agent 驱动（推荐）
 
-OpenHarness 自带一个可复用的 skill，位于 `skills/openharness/`。
+ClawTeam 自带一个可复用的 skill，位于 `skills/clawteam/`。
 
 **Claude Code**
 
-把这个 skill 安装到 `~/.claude/skills/openharness`，然后直接告诉你的 Agent：
+把这个 skill 安装到 `~/.claude/skills/clawteam`，然后直接告诉你的 Agent：
 
 ```
-"帮我做一个 Web 应用。用 oh 把工作拆分给多个 Agent。"
+"帮我做一个 Web 应用。用 clawteam 把工作拆分给多个 Agent。"
 ```
 
 **Codex**
 
-把同一个 skill 安装到 `$CODEX_HOME/skills/openharness`（通常是 `~/.codex/skills/openharness`），然后提示：
+把同一个 skill 安装到 `$CODEX_HOME/skills/clawteam`（通常是 `~/.codex/skills/clawteam`），然后提示：
 
 ```
-用 $oh 把这个任务拆成多 Agent 团队，协调执行直到完成。
+用 $clawteam 把这个任务拆成多 Agent 团队，协调执行直到完成。
 ```
 
-Agent 会自动使用 `oh` 命令创建团队、启动 Worker、分配任务、协调工作。
+Agent 会自动使用 `clawteam` 命令创建团队、启动 Worker、分配任务、协调工作。
 
 ### 🔧 方式二：手动操作
 
 ```bash
 # 1. 创建团队
-oh team spawn-team my-team -d "构建认证模块" -n leader
+clawteam team spawn-team my-team -d "构建认证模块" -n leader
 
 # 2. 启动 Worker Agent —— 每个自动获得 Git Worktree、tmux 窗口和身份
-oh spawn --team my-team --agent-name alice --task "实现 OAuth2 流程"
-oh spawn --team my-team --agent-name bob   --task "编写认证单元测试"
+clawteam spawn --team my-team --agent-name alice --task "实现 OAuth2 流程"
+clawteam spawn --team my-team --agent-name bob   --task "编写认证单元测试"
 
 # 3. Worker 自动获得协作提示词，知道如何：
-#    ✅ 查看任务：oh task list my-team --owner alice
-#    ✅ 更新状态：oh task update my-team <id> --status completed
-#    ✅ 汇报 Leader：oh inbox send my-team leader "完成！"
+#    ✅ 查看任务：clawteam task list my-team --owner alice
+#    ✅ 更新状态：clawteam task update my-team <id> --status completed
+#    ✅ 汇报 Leader：clawteam inbox send my-team leader "完成！"
 
 # 4. 观看 Agent 协同工作
-oh board attach my-team
+clawteam board attach my-team
 ```
 
 ### 🧩 Profiles 和 Presets
@@ -401,25 +401,25 @@ oh board attach my-team
 
 ```bash
 # 查看内置 provider 模板
-oh preset list
-oh preset show moonshot-cn
+clawteam preset list
+clawteam preset show moonshot-cn
 
 # 从 preset 生成可复用的 runtime profile
-oh preset generate-profile moonshot-cn claude --name claude-kimi
+clawteam preset generate-profile moonshot-cn claude --name claude-kimi
 
 # MiniMax（M2.7）— 国际或国内端点
-oh preset generate-profile minimax-global claude --name claude-minimax
-oh preset generate-profile minimax-cn claude --name claude-minimax-cn
+clawteam preset generate-profile minimax-global claude --name claude-minimax
+clawteam preset generate-profile minimax-cn claude --name claude-minimax-cn
 
 # 或使用交互式 TUI
-oh profile wizard
+clawteam profile wizard
 
 # Claude Code 在全新机器 / 全新 HOME 下通常只需要执行一次
-oh profile doctor claude
+clawteam profile doctor claude
 
 # 在真正 spawn 之前先做 smoke test
-MOONSHOT_API_KEY=... oh profile test claude-kimi
-MINIMAX_API_KEY=... oh profile test claude-minimax
+MOONSHOT_API_KEY=... clawteam profile test claude-kimi
+MINIMAX_API_KEY=... clawteam profile test claude-minimax
 ```
 
 可以这样理解：
@@ -431,35 +431,35 @@ MINIMAX_API_KEY=... oh profile test claude-minimax
 
 ### 🧭 我到底该用哪条 spawn 命令？
 
-通用格式是 `oh spawn [backend] [command] ...`。`command` 要填你机器上本来就能工作的 agent CLI：
+通用格式是 `clawteam spawn [backend] [command] ...`。`command` 要填你机器上本来就能工作的 agent CLI：
 
 ```bash
 # Claude Code
-oh spawn tmux claude --team my-team --agent-name alice --task "实现 OAuth2"
+clawteam spawn tmux claude --team my-team --agent-name alice --task "实现 OAuth2"
 
 # Codex
-oh spawn tmux codex --team my-team --agent-name bob --task "编写前端测试"
+clawteam spawn tmux codex --team my-team --agent-name bob --task "编写前端测试"
 
 # nanobot
-oh spawn tmux nanobot --team my-team --agent-name carol --task "构建 API"
+clawteam spawn tmux nanobot --team my-team --agent-name carol --task "构建 API"
 
 # 已配置好的 profile（推荐用于非默认 provider / 模型）
-oh spawn tmux --profile claude-kimi --team my-team --agent-name dave --task "重构认证流程"
+clawteam spawn tmux --profile claude-kimi --team my-team --agent-name dave --task "重构认证流程"
 ```
 
 说明：
 
 - `tmux` 是默认 backend，适合需要保留交互式 TUI、并且想直接观察 agent 工作过程的场景。
 - `subprocess` 更适合一次性工具或非交互脚本。
-- `nanobot` 在 OpenHarness 内部会自动规范化为 `nanobot agent`，上面的写法就是正确入口。
+- `nanobot` 在 ClawTeam 内部会自动规范化为 `nanobot agent`，上面的写法就是正确入口。
 - Claude Code 和 Codex 在全新 worktree 里的 trust prompt，tmux backend 会自动确认。
 - 如果你用的是非默认 provider / 模型，优先使用 `--profile <name>`，不要每次手工拼环境变量。
 
 ### 🔌 接入别的 Agent 要满足什么？
 
-除了 Claude Code、Codex、nanobot 之外，OpenHarness 也能接别的 CLI agent，但至少要满足这几个条件：
+除了 Claude Code、Codex、nanobot 之外，ClawTeam 也能接别的 CLI agent，但至少要满足这几个条件：
 
-1. 命令在 `PATH` 里能找到，并且脱离 OpenHarness 也能正常启动。
+1. 命令在 `PATH` 里能找到，并且脱离 ClawTeam 也能正常启动。
 2. 能在指定工作目录或 git worktree 里运行。
 3. 能接收初始任务，方式可以是命令行参数，也可以是交互输入。
 4. 如果是交互式 agent，启动后不能立刻退出，得能留在 `tmux` 里。
@@ -467,7 +467,7 @@ oh spawn tmux --profile claude-kimi --team my-team --agent-name dave --task "重
 如果你不确定一个 agent 是否兼容，先这样测：
 
 ```bash
-oh spawn subprocess <your-agent> --team my-team --agent-name test --task "Say OK"
+clawteam spawn subprocess <your-agent> --team my-team --agent-name test --task "Say OK"
 ```
 
 这条能跑通，再切到 `tmux` 做交互式监控。
@@ -478,13 +478,13 @@ oh spawn subprocess <your-agent> --team my-team --agent-name test --task "Say OK
 
 | Agent | 启动命令 | 状态 |
 |-------|---------|------|
-| [Claude Code](https://claude.ai/claude-code) | `oh spawn tmux claude --team ...` | ✅ 完全支持 |
-| [Codex](https://openai.com/codex) | `oh spawn tmux codex --team ...` | ✅ 完全支持 |
-| [OpenClaw](https://github.com/openclaw/openclaw) | `oh spawn tmux openclaw --team ...` | ✅ 完全支持 |
-| [nanobot](https://github.com/HKUDS/nanobot) | `oh spawn tmux nanobot --team ...` | ✅ 完全支持 |
-| [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) | `oh spawn tmux kimi --team ...` | ✅ 完全支持 |
-| [Cursor](https://cursor.com) | `oh spawn subprocess cursor --team ...` | 🔮 实验性 |
-| 自定义脚本 | `oh spawn subprocess python --team ...` | ✅ 完全支持 |
+| [Claude Code](https://claude.ai/claude-code) | `clawteam spawn tmux claude --team ...` | ✅ 完全支持 |
+| [Codex](https://openai.com/codex) | `clawteam spawn tmux codex --team ...` | ✅ 完全支持 |
+| [OpenClaw](https://github.com/openclaw/openclaw) | `clawteam spawn tmux openclaw --team ...` | ✅ 完全支持 |
+| [nanobot](https://github.com/HKUDS/nanobot) | `clawteam spawn tmux nanobot --team ...` | ✅ 完全支持 |
+| [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) | `clawteam spawn tmux kimi --team ...` | ✅ 完全支持 |
+| [Cursor](https://cursor.com) | `clawteam spawn subprocess cursor --team ...` | 🔮 实验性 |
+| 自定义脚本 | `clawteam spawn subprocess python --team ...` | ✅ 完全支持 |
 
 像 “Claude Code 走 Moonshot Kimi”、”Claude Code 走 MiniMax” 或 “Gemini 走 Vertex” 这类 provider-aware 场景，
 推荐先用 `profile` + `preset` 配好，再通过 `--profile` 启动。
@@ -529,7 +529,7 @@ oh spawn subprocess <your-agent> --team my-team --agent-name test --task "Say OK
 
 ### 🎪 团队模板
 - **TOML 文件**定义团队原型（角色、任务、提示词）
-- 一条命令启动完整团队：`oh launch <template>`
+- 一条命令启动完整团队：`clawteam launch <template>`
 - 内置：AI 对冲基金（7 Agent），可自定义
 
 </td>
@@ -562,20 +562,20 @@ oh spawn subprocess <your-agent> --team my-team --agent-name test --task "Say OK
 ## 📖 致谢
 
 - [@karpathy/autoresearch](https://github.com/karpathy/autoresearch) — 8 Agent 群体实验的基础框架
-- [Claude Code](https://claude.ai/claude-code) 和 [Codex](https://openai.com/codex) — 作为 OpenHarness 团队成员的 AI 编程 Agent
+- [Claude Code](https://claude.ai/claude-code) 和 [Codex](https://openai.com/codex) — 作为 ClawTeam 团队成员的 AI 编程 Agent
 - [ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) — AI 对冲基金模板的灵感来源
 - [CLI-Anything](https://github.com/HKUDS/CLI-Anything) — 姊妹项目，让所有软件都能被 Agent 使用
 
 ## ⭐ Star History
 
-如果 OpenHarness 帮助你的 AI Agent 协同工作，给我们一个 star ⭐
+如果 ClawTeam 帮助你的 AI Agent 协同工作，给我们一个 star ⭐
 
 <div align="center">
-  <a href="https://star-history.com/#HKUDS/OpenHarness&Date">
+  <a href="https://star-history.com/#HKUDS/ClawTeam&Date">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HKUDS/OpenHarness&type=Date&theme=dark" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HKUDS/OpenHarness&type=Date" />
-      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=HKUDS/OpenHarness&type=Date" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HKUDS/ClawTeam&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HKUDS/ClawTeam&type=Date" />
+      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=HKUDS/ClawTeam&type=Date" />
     </picture>
   </a>
 </div>
@@ -590,17 +590,17 @@ MIT
 
 <div align="center">
 
-**OpenHarness** — *Agent 群体智能* 🦞
+**ClawTeam** — *Agent 群体智能* 🦞
 
 <sub>8 Agent × 8 H100 × 2430 实验 × 一个 CLI × 一个群体</sub>
 
 <br>
 
-<img src="assets/icon.png" alt="OpenHarness" width="80">
+<img src="assets/icon.png" alt="ClawTeam" width="80">
 
 </div>
 
 <p align="center">
-  <em>感谢访问 ✨ OpenHarness！</em><br><br>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.OpenHarness&style=for-the-badge&color=00d4ff" alt="Views">
+  <em>感谢访问 ✨ ClawTeam！</em><br><br>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.ClawTeam&style=for-the-badge&color=00d4ff" alt="Views">
 </p>
